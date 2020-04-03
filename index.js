@@ -110,7 +110,7 @@ mongoose.connect('mongodb://localhost:27017/db')
     https.createServer({
         key: fs.readFileSync('privateKey.key'),
         cert: fs.readFileSync('certificate.crt')
-      }, app).listen(8000, '192.168.1.74', () => {
+      }, app).listen(8000, () => {
       });
   }).catch((err) => {
     console.log('Mongodb connection failed.' +err);
