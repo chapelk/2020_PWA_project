@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Hello World</title>
+  <script src="js/jquery.js"></script>
+  <script src="js/popper.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/bootstrap.min.js"></script>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="white"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="fullscreen">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="#">Hello World</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#">Acceuil <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="/create">Proposer une blague</a>
+        <a class="nav-item nav-link" href="/list">Toutes les blagues</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container text-center mt-5 d-flex flex-column px-lg-0 mb-3" style="background-color: white">
+    <div class="col-lg-8 col-12 title-wrapper">
+      <h1 class="title col-12 mx-auto">Guide du confinement</h1>
+    </div>
+    <div class="col-12 d-flex justify-content-center mb-5 pt-4 flex-column">
+      <h3 class="bloc-title">La blague du jour</h3>
+      <div class="joke d-flex flex-column col-lg-6 col-10 mx-auto pb-2">
+        <div class="col-lg-5 col-8 align-self-start author-wrapper d-flex flex-row">
+          <img src="images/profile_400x400.png" /> <p>TotoDu42</p>
+        </div>
+        <div class="text-justify">
+          <p>Ceci est une blague. Ceci est une blague. Ceci est une blague. Ceci est une blague. Ceci est une blague. Ceci est une blague. Ceci est une blague. 
+            Ceci est une blague. Ceci est une blague. Ceci est une blague. Ceci est une blague. Ceci est une blague. Ceci est une blague. Ceci est une blague. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8 col-12 border-bottom mx-auto mb-5">
+      <h3 class="bloc-title">Les conseils</h3>
+      <div class="float-left pb-5">
+        <ul>
+          <li>Conseil N°1</li>
+          <li>Conseil N°2</li>
+          <li>Conseil N°3</li>
+          <li>Conseil N°4</li>
+          <li>Conseil N°5</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-10 mb-5 mx-auto">
+      <button class="btn btn-primary col-lg-5 col-8 notify-button">Notifie moi !</button>
+    </div>
+  </div>
+</div>      
+<script src="./js/main.js"></script>
+</body>
+</html>

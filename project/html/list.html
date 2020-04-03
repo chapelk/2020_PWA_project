@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="white"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="fullscreen">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="/">Hello World</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="/">Acceuil <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/create">Proposer une blague</a>
+                <a class="nav-item nav-link" href="#">Toutes les blagues</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container text-center mt-5 d-flex flex-column border px-0 mb-3" style="background-color: white">
+        <div class="text-left mb-4 px-3 pt-5">
+            <h1>Liste des blagues</h1>
+        </div>
+        <div class="joke-list d-flex flex-column justify-content-start">
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function() {
+        // if (window.navigator.onLine) {
+            $.ajax({
+                method: "GET",
+                cache: true,
+                crossDomain: true,
+                url: "/allJoke",
+                headers: {
+                    'Access-Control-Allow-Origin': '*'
+                },
+                success: function( msg, err, res ) {
+                    appendJokes(msg.jokes)
+                    // caches.open('guideDuConfinement').then(function(cache) {
+                    //     var test = new Response(res);
+                    //     return cache.put('/allJoke', test);
+                    // })      
+                }
+            })
+        });
+        // else {
+        //     caches.open('guideDuConfinement').then(function(cache) {
+        //         return cache.match('/allJoke').then(function(response) {
+        //             if (response) {
+        //                 appendJokes(response.responseJSON);
+        //                 return response;
+        //             }
+        //         }).catch(function(error) {
+        //             console.error('  Error in fetch handler:', error); 
+        //             throw error;
+        //         });
+        //     })
+        // }
+//    });
+    function appendJokes(jokes) {
+        jokes.forEach(joke => {
+            if (joke.author && joke.joke) {
+                var elem = "<div class=\"joke d-flex flex-column col-lg-8 col-10 mx-auto pb-2\">" +
+                    "<div class=\"col-lg-5 col-8 align-self-start author-wrapper d-flex flex-row\">" +
+                        "<img src=\"images/profile_400x400.png\" />"+
+                        "<p>"+joke.author+"</p>" +
+                        "</div>" +
+                        "<div class=\"text-justify\">" +
+                            "<p>"+joke.joke+"</p>" +
+                            "</div>"+
+                            "</div>";
+                            $('.joke-list').append(elem);
+                        }
+                    });
+                }
+            </script>
+            </html>
+            

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="white"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="fullscreen">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="/">Hello World</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Acceuil <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Proposer une blague</a>
+            <a class="nav-item nav-link" href="/list">Toutes les blagues</a>
+          </div>
+        </div>
+      </nav>
+    <div class="container text-center mt-5 d-flex flex-column border  px-0 mb-3" style="background-color: white">
+        <div class="text-left mb-4 px-3 pt-5">
+            <h1>Proposer une blague</h1>
+        </div>
+        <div class="col-10 d-flex flex-column justify-content-center mb-4">>
+            <label class="align-self-start" for="author">Votre nom</label>
+            <input type="text" name="author" id="author" class="col-7 mb-2">
+            <label class="align-self-start" for="joke">Votre blague</label>
+            <textarea name="joke" id="joke"></textarea>
+            <button id="button_joke" class="btn btn-primary col-4 col-lg-2 align-self-center mt-3">Soumettre</button>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#button_joke').on('click', function() {
+                $.ajax({
+                    method: 'POST',
+                    url: "/joke",
+                    data: {
+                        author: $('#author').val(),
+                        joke: $('#joke').val(),
+                    }
+                }).done(function() {
+                });
+            })
+        })
+    </script>
+</body>
+</html>
